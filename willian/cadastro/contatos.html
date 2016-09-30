@@ -1,0 +1,88 @@
+<!-- Prof. Thiago -->
+
+<html>
+	<head>
+		<meta charset="utf-9" />
+	</head>
+
+	<style type="text/css">
+	tr{
+		cursor: pointer;
+	}
+	.bg{
+		background-color: #e9dc62;
+	}
+	</style>
+
+	<body>
+		<table>
+			<thead>
+				<tr>
+					<th>Nome</th>
+					<th>Telefone</th>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+		<button name="remover" id="remover">Remover</button>
+		<script src="jquery.js" type="text/javascript" charset="utf-8" ></script>
+		<script type="text/javascript" charset="utf-8" >
+		$( document ).ready( function() {
+
+			function desenhar( contatos ) {
+				var tbody = $( 'table tbody' );
+				for ( var i in contatos ) {
+					var c = contatos[ i ];
+					var linha = '<tr>' +
+						'<td>' + c.nome + '</td>' +
+						'<td>' + c.telefone + '</td>' +
+						'</tr>';
+					tbody.append( linha );
+				}
+
+				$('table tbody tr').click(function(){
+					$(this).toggleClass('bg');
+				});
+			}
+
+			function sucesso( dados, textStatus, jqXhr ) {
+				desenhar( dados );
+				console.log(dados);
+			}
+
+			function falha( jqXhr, textStatus, errorThrown ) {
+				console.log( textStatus );
+				console.log(jqXhr);
+			}
+
+			console.log( 'Consultando...' );
+
+			//Referenciar arquivo php aqui
+			//var jqXhr = $.get( 'codigos.php' );
+			var jqXhr = $.get( 'crud2.php' );
+			
+
+			jqXhr.done( sucesso );
+			jqXhr.fail( falha );
+
+			$('#remover').click(function remover(){
+				var nome = $('table tbody tr.bg td').html();
+				if(nome && nome.length > 0){
+					alert('Removendo ' + nome);
+
+					var jqXhr = $.ajax({
+						url: 'crud2.php?nome=' + nome,
+						method: 'DELETE',
+					});
+
+					jqXhr.done( sucesso );
+					jqXhr.fail( falha );
+
+				}
+			});
+
+		} );
+		</script>
+	</body>
+</html>

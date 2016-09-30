@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>PHP Contacts</title>
+	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap-sandstone.min.css">
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<button type="button" class="btn btn-primary btn-sm" onclick="showForm()">New contact</button>
+			</div>
+		</div>
+
+		
+		<div class="row hidden" id="contact_form">
+			<div class="col-sm-12">
+				<form name="contact_form">
+					<input type="hidden" name="update" id="update" value="0"/>
+					<div class="form-group">
+						<label for="name">Name</label>
+						<input type="text" name="name" id="name" class="form-control" required minlength="2" maxlength="60" />
+						<div id="name_error" class="text-danger hidden"></div>
+					</div>
+					<div class="form-group">
+						<label for="phone">Phone</label>
+						<input type="tel" name="phone" id="phone" class="form-control" required minlength="9" />
+						<div id="phone_error" class="text-danger hidden"></div>
+					</div>
+					<div class="form-group">
+						<button id="send" type="submit" class="btn btn-success btn-sm pull-right">Send</button>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<div class="row text-danger">
+			<div class="col-sm-12 hidden" id="errors"></div>
+		</div>
+
+		<fieldset>
+			<legend>Contacts</legend>
+			<div id="contacts"></div>
+		</fieldset>
+	</div>
+</body>
+<script type="text/javascript" src="assets/js/jquery-2.2.5.min.js"></script>
+<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="app/Contact.js"></script>
+
+<script type="text/javascript" src="app/contacts.js"></script>
+</html>
