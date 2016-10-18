@@ -12,8 +12,7 @@ function save(user) {
 	});
 
 	var success = function(data){
-		alert(user.name + ' added.');
-		window.location = 'users.html';
+		alert(data);
 	};
 
 	var error = function(jqXhr, textStatus, errorThrown){

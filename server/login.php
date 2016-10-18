@@ -15,7 +15,7 @@ Dica: Use as funções file_get_contetns e file_put_contents para obter ou grava
 */
 
 
-header("Content-Type: application/json");
+ header("Content-type: application/json");
 
 $method = $_SERVER["REQUEST_METHOD"];
 
@@ -71,13 +71,16 @@ function doPost()  {
 		foreach($rows as $row) {
 			$user = explode(",", $row);
 
+
 			if($data['email'] == $user[1] && $data['password'] == $user[2]) {
 				header('HTTP/1.1 200 Success');		
-				die('Login successfull');
+				die(json_encode("Login successfull"));
+				
 			}
 			
 			header('HTTP/1.1 400 Bad Request');
 			echo json_encode(["Invalid credentials"]);
+			exit;
 		}
 
 		
