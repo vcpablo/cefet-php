@@ -152,10 +152,13 @@ function remove(name) {
 
 $(document).ready(function() {
 	get();
+	alert("OK");
 	$("#send").click( function(e) {
 		console.log($("#update").val())
 		save(e, $("#update").val() == 1)
 	} );
+
+	
 
 	$("input").on('keypress', function() {
 		$("#" + $(this).attr("id") + "_error").html('').addClass("hidden");

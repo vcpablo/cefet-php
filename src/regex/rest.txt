@@ -1,0 +1,33 @@
+REST - REpresentational State Transfer
+
+- 	HTTP usando "verbos" originais
+- 	caminhos dos recursos padronizados
+
+API RESTFUL (respeita o padrão REST)
+-	servidor como fornecedor de recursos com caminhos ("rotas") padronizadas
+
+Nomeação dos recursos
+	-	no plural			ex.: /produtos
+	- 	aceita subpartes	ex.: /produtos/50 (produto com id = 50)
+
+--------------------------------------------------------------------
+
+Arquivo .htaccess
+
+Arquivo de configuração do Apache. 
+Pode ter regras para filtragem, redirecionamento, tratamento de erro, etc.
+Pode ser colocado no diretório raiz e também em subdiretórios, caso necessário.
+
+<?php
+
+$method = $_SERVER[ 'REQUEST_METHOD' ];
+echo '<br />Método: ' . $method;
+
+$url = $_SERVER[ 'REQUEST_URI' ];
+echo '<br />URL: ' . $url;
+
+$dirName = dirname( $_SERVER[ 'PHP_SELF' ] );
+echo '<br />URL Base' . $dirName;
+
+$path = mb_substr( $url, mb_strlen( $dirName ) );
+echo '<br />Path: ' . $path;

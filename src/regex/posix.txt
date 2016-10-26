@@ -1,0 +1,46 @@
+Padrões adicionais - POSIX
+
+Posix 		- 	Significado 			- 	ASCII
+---------------------------------------------------
+[:alnum:] 	- 	Alfanumérico 			- 	[a-zA-Z0-9]
+[:alpha:] 	- 	Alfabéticos 			-	[a-zA-Z]
+[:ascii:] 	- 	ASCII 					-	[\0x00-\0x7f] (0-127)
+[:blank:] 	- 	Espaço e tab 			-	[\t] 
+[:cntrl:] 	- 	Caracteres de Controler -	[\0x00-\0x1F] (0-31)
+[:digit:]	-	Dígito					-	[0-9]
+[:graph:]	- 	Caracteres visíveis
+				(exceto espaço e
+				caraceres de controle)	-	[\0x21-\0x7E]
+[:lower:]	-	minúsculas				-	[a-z]
+[:print:]	-	Caracteres imprímiveis	- 	[\020-\0x7E]
+[:punct:]	-	Pontuação				-	
+[:space:]	-	Espaço, quebra de linha	-	
+				e tabulaçao
+[:upper:]	-	Maiúsculas				-	[A-Z]
+[:word:]	-	Letras, números e
+				underline				-	[a-zA-z0-9_]
+[:xdigit:]	-	Dígitos hexadecimais
+
+// em PHP
+
+int preg_match( string $expressao,
+				string $valor,
+				[, array &$casamentos
+				[, int $flags = 0
+				[, int $offset = 0]]]);
+
+1 		- 	casa (testar com $result === 1)
+0 		- 	não casa, ou
+false	-	falso em caso de erro
+
+Exemplo:
+
+<?php
+
+$nome = htmlspecialchars( $_POST['nome'] );
+
+if( 1 === preg_match()'/^[a-Z0-9.]{2,60}$/', $nome ) {
+	echo 'Casa';
+} else {
+	echo 'Não casa';
+}

@@ -3,6 +3,7 @@
 1. Crie a classe Contato, com nome, telefone  eseus getters e setters. Envio, com o cURL, uma requisição POST com esses mesmos dados. No arquivo ex1.php, obtenha os dados, instancia um contato e exiba seu conteúdo com var_dump();
 Obs.: Colocar Contato em Contato.php
 
+
 2. Crie um arquivo ValidacaoContato.php que tenha uma classe homônima com um método validar(Contato $c). O método deve retornar um array vazio se o contato estiver válido ou um array de mensagens caso contrário. Um contato válido é aquele cujo:
 
 a) Nome está entre 2 e 100 caracteres;
