@@ -1,1 +1,0 @@
-Alguns arquivos estão em: C:\dev\wamp\www\cadastro
